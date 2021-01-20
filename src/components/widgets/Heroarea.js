@@ -62,11 +62,12 @@ const useStyles = makeStyles((theme)=>({
         }
     }
 }))
+
 function Heroarea() {
     const classes = useStyles()
     return (
         <div className={classes.heroContainer}>
-            <Parallax bgImage={heroimage}>
+            <Parallax strength={200} bgImage={heroimage}>
                 <div className={classes.heroareaRoot}>
                     <div className={classes.heroSubTitle}>
                         <span className={classes.curveLine}>
