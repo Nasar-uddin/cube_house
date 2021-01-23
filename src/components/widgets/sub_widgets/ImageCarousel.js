@@ -12,6 +12,7 @@ function ImageCarousel() {
         focusOnSelect: false,
         infinite: true,
         speed: 500,
+        autoplaySpeed: 15000,
         slidesToShow: 1,
     };
     return (

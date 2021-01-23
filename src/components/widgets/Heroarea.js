@@ -2,7 +2,6 @@ import React from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import curve from '../../assets/curve.svg'
 import { Parallax } from 'react-parallax'
-import heroimage from '../../assets/heroimage.jpg'
 
 const useStyles = makeStyles((theme)=>({
     heroContainer: {
@@ -64,24 +63,24 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-function Heroarea() {
+function Heroarea({heading, subHeading, image}) {
     const classes = useStyles()
     return (
         <div className={classes.heroContainer}>
-            <Parallax strength={200} bgImage={heroimage}>
+            <Parallax strength={200} bgImage={image}>
                 <div className={classes.heroareaRoot}>
                     <div className={classes.heroSubTitle}>
                         <span className={classes.curveLine}>
                             <img src={curve} alt="curve line"/>
                         </span>
                         <span className={'sub-title'}>
-                            Kastell Studio
+                            {subHeading}
                         </span>
                         <span className={classes.curveLine}>
                             <img src={curve} alt="curve line"/>
                         </span>
                     </div>
-                    <h1 className={classes.heroTitle}>CUBE HOUSE</h1>
+                    <h1 className={classes.heroTitle}>{heading}</h1>
                 </div>
             </Parallax>
         </div>

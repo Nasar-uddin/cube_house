@@ -4,9 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import MyTabs, { MyTab } from '../custom_mui_components/MyTabs'
 import { Room, Flare, Store } from '@material-ui/icons'
 import TabPanel from '../custom_mui_components/TabPanel'
-import heroimage from '../../assets/heroimage.jpg'
-import map_gallery_img_1 from '../../assets/map_gallery_img_1.jpg'
-import map_gallery_img_2 from '../../assets/map_gallery_img_2.jpg'
 
 const useStyles = makeStyles((theme) => ({
     projectRoot: {
@@ -39,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function Projects() {
+function Projects({projects}) {
     const classes = useStyles()
     const [activeIndex, setActiveIndex] = useState(0)
     const handleChange = (_, newIndex) => {
@@ -57,19 +54,21 @@ function Projects() {
                 </Grid>
             </Grid>
             <div>
-                <TabPanel value={activeIndex} index={0} className={classes.tabPanel}>
-                    <Grid container spacing={2}>
-                        <Grid item lg={6} md={6} sm={12}>
-                            <h2 className={classes.sectionTitle}>Delivering High Quality Projects 1</h2>
-                            <p className={classes.sectionSubTitle}>Lorem ipsum proin gravida nibh vel velit auctor aliollici tudin sed odio sit amet nibh vulputate</p>
-                            <p className={classes.sectionText}>Lorem ipsum proin gravida nibh vel velit auctor aliollicitudin, lorem quis bibendum auctor nisi elit consequat ipsum, nec sagittis. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor.</p>
+                {projects.map((project)=>(
+                    <TabPanel value={activeIndex} index={project.id} key={project.id} className={classes.tabPanel}>
+                        <Grid container spacing={2}>
+                            <Grid item lg={6} md={6} sm={12}>
+                                <h2 className={classes.sectionTitle}>{project.heading}</h2>
+                                <p className={classes.sectionSubTitle}>{project.subHeading}</p>
+                                <p className={classes.sectionText}>{project.description}</p>
+                            </Grid>
+                            <Grid item lg={6} md={6} sm={12}>
+                                <img className={classes.mediaImage} src={project.image} alt="house" />
+                            </Grid>
                         </Grid>
-                        <Grid item lg={6} md={6} sm={12}>
-                            <img className={classes.mediaImage} src={heroimage} alt="house" />
-                        </Grid>
-                    </Grid>
-                </TabPanel>
-                <TabPanel value={activeIndex} index={1} className={classes.tabPanel}>
+                    </TabPanel>
+                ))}
+                {/* <TabPanel value={activeIndex} index={1} className={classes.tabPanel}>
                     <Grid container spacing={2}>
                         <Grid item lg={6} md={6} sm={12}>
                             <h2 className={classes.sectionTitle}>Delivering High Quality Projects 2</h2>
@@ -92,7 +91,7 @@ function Projects() {
                             <img className={classes.mediaImage} src={map_gallery_img_2} alt="house" />
                         </Grid>
                     </Grid>
-                </TabPanel>
+                </TabPanel> */}
             </div>
         </Container>
     )

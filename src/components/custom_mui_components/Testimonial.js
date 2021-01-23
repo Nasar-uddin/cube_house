@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme)=>({
         opacity: 0.8
     }
 }))
+
 function Testimonial({avater, queto, name, profesion}) {
     const classes = useStyles()
 

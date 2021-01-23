@@ -2,9 +2,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import React, {useState} from 'react'
 import Slider from 'react-slick'
 import { PlayCircleOutline } from '@material-ui/icons'
-import map_gallery_img_1 from '../../../assets/map_gallery_img_1.jpg'
-import map_gallery_img_2 from '../../../assets/map_gallery_img_2.jpg'
-import map_gallery_img_3 from '../../../assets/map_gallery_img_3.jpg'
 import { Dialog } from '@material-ui/core'
 
 const useStyles = makeStyles((theme)=>({
@@ -24,7 +21,7 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-function VideoCarousel() {
+function VideoCarousel({items}) {
     const [videoUrl, setVideoUrl] = useState('')
     const [dialogOpen, setDialogOpen] = useState(false)
     const classes = useStyles()
@@ -51,35 +48,8 @@ function VideoCarousel() {
             }
         ]
     };
-    const items = [
-        {
-            id: 1,
-            image: map_gallery_img_1,
-            videoCode: 'l7I9NirHsU0'
-        },
-        {
-            id: 2,
-            image: map_gallery_img_2,
-            videoCode: '9YffrCViTVk'
-        },
-        {
-            id: 3,
-            image: map_gallery_img_3,
-            videoCode: 's5qltDnU4aA'
-        },
-        {
-            id: 4,
-            image: map_gallery_img_1,
-            videoCode: 'l7I9NirHsU0'
-        },
-        {
-            id: 5,
-            image: map_gallery_img_2,
-            videoCode: 'l7I9NirHsU0'
-        }
-    ]
-    const handleClick = async (url)=>{
-        await setVideoUrl(url)
+    const handleClick = (url)=>{
+        setVideoUrl(url)
         setDialogOpen(true)
     }
     return (
