@@ -1,20 +1,26 @@
 import {withStyles} from '@material-ui/core/styles'
 import {Tabs, Tab} from '@material-ui/core'
 
-const MyTabs = withStyles({
+const MyTabs = withStyles((theme)=>({
     root: {
         minHeight: '30px'
     },
     indicator: {
-        display: 'none'
+        display: 'none',
     },
-})(Tabs);
+    flexContainer: {
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column'
+        }
+    }
+}))(Tabs);
 
-export const MyTab = withStyles({
+export const MyTab = withStyles((theme)=>({
     root: {
         minHeight: '30px',
         minWidth: '100px',
-        padding: '3px 5px'
+        padding: '3px 5px',
+        opacity: 1,
     },
     labelIcon: {
         marginRight: '15px',
@@ -52,5 +58,5 @@ export const MyTab = withStyles({
         color: '#2d2e32',
         backgroundColor: '#f8ecc7'
     }
-})(Tab)
+}))(Tab)
 export default MyTabs

@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme)=>({
         padding: '0px 40px',
         color: '#ffffff',
         '& .react-parallax-content': {
-            backgroundColor: 'rgba(0, 0, 0, 0.3)'
+            backgroundColor: 'rgba(0, 0, 0, 0.35)'
         },
         [theme.breakpoints.down('sm')]: {
             padding: '0px 20px',
@@ -30,8 +30,9 @@ const useStyles = makeStyles((theme)=>({
         fontWeight: '700',
         textAlign: 'center',
         margin: '0px',
-        lineHeight: '110%',
-        marginTop: '15px',
+        lineHeight: '1em',
+        marginTop: '25px',
+        letterSpacing: '0.1em',
         [theme.breakpoints.down('md')]: {
             fontSize: '6.2rem'
         },
