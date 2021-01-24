@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {ApiContext} from '../../context/ApiContext'
+import {CircularProgress } from '@material-ui/core'
 import Navbar from '../widgets/Navbar'
 import Heroarea from '../widgets/Heroarea'
 import Projects from '../widgets/Projects'
@@ -12,6 +14,7 @@ import property_custom_icon_3 from '../../assets/property_custom_icon_3.png'
 import property_custom_icon_4 from '../../assets/property_custom_icon_4.png'
 
 function WorkDetails() {
+    const {siteData, dataLoaded} = useContext(ApiContext)
     const data = {
         heroArea: {
             heading: 'CUBE HOUSE',
@@ -114,10 +117,17 @@ function WorkDetails() {
             }
         ]
     }
+    if(!dataLoaded){
+        return (
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <CircularProgress />
+            </div>
+        )
+    }
     return (
         <div>
             <Navbar/>
-            <Heroarea heading={data.heroArea.heading} subHeading={data.heroArea.subHeading} image={data.heroArea.image}/>
+            <Heroarea heading={siteData.title} subHeading={siteData.description} image={siteData.cover}/>
             <VideoCarousel items={data.videoItems}/>
             <Projects projects={data.projects}/>
             <Services services={data.services}/>

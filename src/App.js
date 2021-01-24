@@ -8,7 +8,7 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/">
+                <Route path="/projects/:id">
                     <WorkDetails/>
                 </Route>
             </Switch>

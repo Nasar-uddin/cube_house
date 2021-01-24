@@ -1,0 +1,112 @@
+{
+    "id": 1,
+    "title": "CUBE HOUSE",
+    "cover": "https://i.ibb.co/0qvP2rW/heroimage.jpg",
+    "description": "Test",
+    "brochure": "/uploads/files/brochure.pdf",
+    "large": [
+        {
+            "title": "Project Complex",
+            "image": "/uploads/media/project_complex.jpg",
+            "heading": "Delivering High Quality Projects 1",
+            "subheading": "Lorem ipsum proin gravida nibh vel velit auctor aliollici tudin sed odio sit amet nibh vulputate",
+            "text": "Lorem ipsum proin gravida nibh vel velit auctor aliollicitudin, lorem quis bibendum auctor nisi elit consequat ipsum, nec sagittis. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor.",
+            "subsections": [
+            ]
+        },
+        {
+            "title": "Project Gallery",
+            "image": "/uploads/media/project_gallery.jpg",
+            "heading": "Delivering High Quality Projects 2",
+            "subheading": "",
+            "text": "",
+            "subsections": [
+                {
+                    "id": 1,
+                    "title": "Section 1",
+                    "text": "ONE"
+                },
+                {
+                    "id": 2,
+                    "title": "Section 2",
+                    "text": "TWO"
+                },
+                {
+                    "id": 3,
+                    "title": "Section 3",
+                    "text": "THREE"
+                }
+            ]
+        },
+        {
+            "title": "Project Information",
+            "image": "/uploads/media/project_information.jpg",
+            "heading": "Delivering High Quality Projects 3",
+            "subheading": "Lorem ipsum proin gravida nibh vel velit auctor aliollici tudin sed odio sit amet nibh vulputate",
+            "text": "Lorem ipsum proin gravida nibh vel velit auctor aliollicitudin, lorem quis bibendum auctor nisi elit consequat ipsum, nec sagittis. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor.",
+            "subsections": [
+                {
+                    "id": 1,
+                    "title": "Section 1",
+                    "text": "ONE"
+                },
+                {
+                    "id": 2,
+                    "title": "Section 2",
+                    "text": "TWO"
+                },
+                {
+                    "id": 3,
+                    "title": "Section 3",
+                    "text": "THREE"
+                }
+            ]
+        }
+    ],
+    "mini": [
+        {
+            "image": "/uploads/media/mini_1.jpg",
+            "heading": "Lux Appliances",
+            "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
+        },
+        {
+            "image": "/uploads/media/mini_2.jpg",
+            "heading": "Fast WI-FI",
+            "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
+        },
+        {
+            "image": "/uploads/media/mini_3.jpg",
+            "heading": "Swimming Pool",
+            "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
+        },
+        {
+            "image": "/uploads/media/mini_4.jpg",
+            "heading": "Parking Place",
+            "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
+        },
+        {
+            "image": "/uploads/media/mini_5.jpg",
+            "heading": "FDSGJKSG",
+            "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
+        },
+        {
+            "image": "/uploads/media/mini_6.jpg",
+            "heading": "WLWLQFDF",
+            "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
+        }
+    ],
+    "carousel": [
+        {
+            "type": "photo",
+            "path": "/uploads/media/carousel_photo_1.jpg"
+        },
+        {
+            "type": "video",
+            "path": "/uploads/videos/carousel_video_1.mp4"
+        },
+        {
+            "type": "video",
+            "path": "/uploads/videos/carousel_video_2.mp4"
+        }
+    ]
+}
