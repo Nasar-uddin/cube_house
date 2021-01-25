@@ -6,8 +6,9 @@
     "brochure": "/uploads/files/brochure.pdf",
     "large": [
         {
+            "id": 0,
             "title": "Project Complex",
-            "image": "/uploads/media/project_complex.jpg",
+            "image": "https://i.ibb.co/XCrYRqq/map-gallery-img-4.jpg",
             "heading": "Delivering High Quality Projects 1",
             "subheading": "Lorem ipsum proin gravida nibh vel velit auctor aliollici tudin sed odio sit amet nibh vulputate",
             "text": "Lorem ipsum proin gravida nibh vel velit auctor aliollicitudin, lorem quis bibendum auctor nisi elit consequat ipsum, nec sagittis. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor.",
@@ -15,11 +16,12 @@
             ]
         },
         {
+            "id": 1,
             "title": "Project Gallery",
-            "image": "/uploads/media/project_gallery.jpg",
+            "image": "https://i.ibb.co/pj3RqRN/map-gallery-img-5.jpg",
             "heading": "Delivering High Quality Projects 2",
-            "subheading": "",
-            "text": "",
+            "subheading": "Lorem ipsum proin gravida nibh vel velit auctor aliollici tudin sed odio sit amet nibh vulputate",
+            "text": "Lorem ipsum proin gravida nibh vel velit auctor aliollicitudin, lorem quis bibendum auctor nisi elit consequat ipsum, nec sagittis. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus tincidunt auctor.",
             "subsections": [
                 {
                     "id": 1,
@@ -39,8 +41,9 @@
             ]
         },
         {
+            "id": 2,
             "title": "Project Information",
-            "image": "/uploads/media/project_information.jpg",
+            "image": "https://i.ibb.co/CQVBJv9/map-gallery-img-3.jpg",
             "heading": "Delivering High Quality Projects 3",
             "subheading": "Lorem ipsum proin gravida nibh vel velit auctor aliollici tudin sed odio sit amet nibh vulputate",
             "text": "Lorem ipsum proin gravida nibh vel velit auctor aliollicitudin, lorem quis bibendum auctor nisi elit consequat ipsum, nec sagittis. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor.",
@@ -65,48 +68,67 @@
     ],
     "mini": [
         {
-            "image": "/uploads/media/mini_1.jpg",
+            "id": 1,
+            "image": "https://i.ibb.co/yn87wPK/property-custom-icon-1.png",
             "heading": "Lux Appliances",
             "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
         },
         {
-            "image": "/uploads/media/mini_2.jpg",
+            "id": 2,
+            "image": "https://i.ibb.co/m6GryyP/property-custom-icon-2.png",
             "heading": "Fast WI-FI",
             "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
         },
         {
-            "image": "/uploads/media/mini_3.jpg",
+            "id": 3,
+            "image": "https://i.ibb.co/VCfzwTL/property-custom-icon-3.png",
             "heading": "Swimming Pool",
             "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
         },
         {
-            "image": "/uploads/media/mini_4.jpg",
+            "id": 4,
+            "image": "https://i.ibb.co/VCfzwTL/property-custom-icon-4.png",
             "heading": "Parking Place",
             "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
         },
         {
-            "image": "/uploads/media/mini_5.jpg",
+            "id": 5,
+            "image": "https://i.ibb.co/VCfzwTL/property-custom-icon-5.png",
             "heading": "FDSGJKSG",
             "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
         },
         {
-            "image": "/uploads/media/mini_6.jpg",
+            "id": 6,
+            "image": "https://i.ibb.co/VCfzwTL/property-custom-icon-6.png",
             "heading": "WLWLQFDF",
             "text": "Lorem ipsum proin vel velit auctor aliolli citudin"
         }
     ],
     "carousel": [
         {
+            "id": 1,
             "type": "photo",
-            "path": "/uploads/media/carousel_photo_1.jpg"
+            "path": "https://i.ibb.co/CQVBJv9/map-gallery-img-3.jpg"
         },
         {
-            "type": "video",
-            "path": "/uploads/videos/carousel_video_1.mp4"
+            "id": 2,
+            "type": "photo",
+            "path": "https://i.ibb.co/CQVBJv9/map-gallery-img-3.jpg"
         },
         {
+            "id": 3,
+            "type": "photo",
+            "path": "https://i.ibb.co/CQVBJv9/map-gallery-img-3.jpg"
+        },
+        {
+            "id": 4,
             "type": "video",
-            "path": "/uploads/videos/carousel_video_2.mp4"
+            "path": "https://www.w3schools.com/html/mov_bbb.mp4"
+        },
+        {
+            "id": 5,
+            "type": "video",
+            "path": "https://www.w3schools.com/html/mov_bbb.mp4"
         }
     ]
 }

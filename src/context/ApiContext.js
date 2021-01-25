@@ -7,7 +7,7 @@ function ApiProvider(props) {
     const [siteData, setSiteData] = useState()
     const [dataLoaded, setDataLoaded] = useState(false)
     const loadData = ()=>{
-        // make async request to fetch data
+        // #TODO: make async request to fetch data
         setSiteData(data)
         setDataLoaded(true)
     }

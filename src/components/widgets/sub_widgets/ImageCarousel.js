@@ -1,10 +1,21 @@
 import React from 'react'
 import Slider from 'react-slick'
-import map_gallery_img_1 from '../../../assets/map_gallery_img_1.jpg'
-import map_gallery_img_2 from '../../../assets/map_gallery_img_2.jpg'
-import map_gallery_img_3 from '../../../assets/map_gallery_img_3.jpg'
 
 function ImageCarousel() {
+    const images = [
+        {
+            id: 0,
+            image: 'https://i.ibb.co/G9B89Tt/map-gallery-img-1.jpg'
+        },
+        {
+            id: 1,
+            image: 'https://i.ibb.co/CQVBJv9/map-gallery-img-3.jpg'
+        },
+        {
+            id: 2,
+            image: 'https://i.ibb.co/XCrYRqq/map-gallery-img-4.jpg'
+        }
+    ];
     const settings = {
         dots: false,
         arrows: false,
@@ -17,18 +28,11 @@ function ImageCarousel() {
     };
     return (
         <Slider {...settings}>
-            <div>
-                <img className="w-100" src={map_gallery_img_1} alt="One" />
-            </div>
-            <div>
-                <img className="w-100" src={map_gallery_img_2} alt="One" />
-            </div>
-            <div>
-                <img className="w-100" src={map_gallery_img_3} alt="One" />
-            </div>
-            <div>
-                <img className="w-100" src={map_gallery_img_2} alt="One" />
-            </div>
+            {images.map((im)=>(
+                <div key={im.id}>
+                    <img className="w-100" src={im.image} alt="One" />
+                </div>
+            ))}
         </Slider>
     )
 }

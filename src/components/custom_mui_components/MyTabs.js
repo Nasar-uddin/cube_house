@@ -20,6 +20,7 @@ export const MyTab = withStyles((theme)=>({
         minHeight: '30px',
         minWidth: '100px',
         padding: '3px 5px',
+        marginRight: '15px',
         opacity: 1,
     },
     labelIcon: {
