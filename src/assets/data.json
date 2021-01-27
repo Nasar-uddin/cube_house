@@ -130,5 +130,49 @@
             "type": "video",
             "path": "https://www.w3schools.com/html/mov_bbb.mp4"
         }
+    ],
+    "floorplans": [
+        {
+            "image": "/uploads/media/3080_yk13OlY.jpg",
+            "sections": [
+                {
+                    "image": "/uploads/media/3080_Ueo5xBv.jpg",
+                    "heading": "Living"
+                },
+                {
+                    "image": "/uploads/media/3080_6w0xwSb.jpg",
+                    "heading": "Dining"
+                },
+                {
+                    "image": "/uploads/media/3080_6w0xwSb.jpg",
+                    "heading": "Kitchen"
+                }
+            ],
+            "heading": "Ground"
+        },
+        {
+            "image": "/uploads/media/3080_yk13OlY.jpg",
+            "sections": [
+                {
+                    "image": "/uploads/media/3080_Ueo5xBv.jpg",
+                    "heading": "Bedroom 1"
+                },
+                {
+                    "image": "/uploads/media/3080_6w0xwSb.jpg",
+                    "heading": "Bedroom 2"
+                }
+            ],
+            "heading": "1F"
+        },
+        {
+            "image": "/uploads/media/3080_yk13OlY.jpg",
+            "sections": [
+                {
+                    "image": "/uploads/media/3080_Ueo5xBv.jpg",
+                    "heading": "Bedroom 3"
+                }
+            ],
+            "heading": "2F"
+        }
     ]
 }

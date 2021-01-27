@@ -34,7 +34,7 @@ function WorkDetails() {
     }
     if(!dataLoaded){
         return (
-            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                 <CircularProgress />
             </div>
         )
