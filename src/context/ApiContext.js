@@ -1,4 +1,4 @@
-import React, {createContext, useState, useEffect} from 'react'
+import React, {createContext, useState} from 'react'
 import axios from 'axios'
 
 export const ApiContext = createContext()
@@ -6,22 +6,28 @@ export const ApiContext = createContext()
 function ApiProvider(props) {
     const [siteData, setSiteData] = useState()
     const [dataLoaded, setDataLoaded] = useState(false)
-    const loadData = ()=>{
+    const loadProject = (projectId)=>{
         // #TODO: chnage the route to your project route
-        axios.get('http://127.0.0.1:8000/api/projects/1/').then((response)=>{
-            setSiteData(response.data)
-            setDataLoaded(true)
-        }).catch(error=>{
-            console.log(error)
-            setDataLoaded(false)
+        return new Promise((resolve, reject)=>{
+            if(!dataLoaded){
+                axios.get(`http://127.0.0.1:8000/api/projects/${projectId}/`).then((response)=>{
+                    setSiteData(response.data)
+                    setDataLoaded(true)
+                    resolve(response.data)
+                }).catch(error=>{
+                    console.log(error)
+                    setDataLoaded(false)
+                    reject(error)
+                })
+            }
         })
     }
-    useEffect(() => {
-        loadData()
-    }, [])
+    // useEffect(() => {
+    //     loadData()
+    // }, [])
     return (
         <ApiContext.Provider value={{
-            siteData, dataLoaded
+            siteData, dataLoaded, loadProject
         }}>
             {{...props.children}}
         </ApiContext.Provider>

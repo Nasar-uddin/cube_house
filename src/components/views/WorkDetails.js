@@ -1,4 +1,5 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect } from 'react'
+import {useParams} from 'react-router-dom'
 import {ApiContext} from '../../context/ApiContext'
 import {CircularProgress } from '@material-ui/core'
 import Navbar from '../widgets/Navbar'
@@ -10,7 +11,8 @@ import OurGallery from '../widgets/OurGallery'
 import Testimonials from '../widgets/Testimonials'
 
 function WorkDetails() {
-    const {siteData, dataLoaded} = useContext(ApiContext)
+    const {siteData, dataLoaded, loadProject} = useContext(ApiContext)
+    const {id} = useParams()
     const data = {
         testimonals: [
             {
@@ -33,6 +35,18 @@ function WorkDetails() {
             }
         ]
     }
+
+    const loadData = ()=>{
+        loadProject(id).then((data)=>{
+            console.log(data)
+        }).catch(error=>{
+            console.log(error)
+        })
+        console.log('dma man')
+    }
+    useEffect(() => {
+       loadData()
+    },[])
     if(!dataLoaded){
         return (
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>

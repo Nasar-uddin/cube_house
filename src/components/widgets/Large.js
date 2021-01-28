@@ -40,7 +40,7 @@ function Large({projects}) {
     const classes = useStyles()
     const [expanded, setExpanded] = useState(1)
     const [activeIndex, setActiveIndex] = useState(0)
-    const handleAccordion = (panel) => (event, isExpanded) => {
+    const handleAccordion = (panel) => (_, isExpanded) => {
         setExpanded(isExpanded ? panel : false)
       };
     const handleChange = (_, newIndex) => {
@@ -59,7 +59,7 @@ function Large({projects}) {
             </Grid>
             <div>
                 {projects.map((project)=>(
-                    <TabPanel value={activeIndex} index={project.id} key={project.id} className={classes.tabPanel}>
+                    <TabPanel value={activeIndex} index={project.id-1} key={project.id-1} className={classes.tabPanel}>
                         <Grid container spacing={2}>
                             <Grid item lg={6} md={6} sm={12}>
                                 <h2 className={classes.sectionTitle}>{project.heading}</h2>
