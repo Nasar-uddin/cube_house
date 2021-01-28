@@ -75,3 +75,9 @@ h1, h2, h3, h4, h5, h6{
 .slick-current .playButtonContainer{
   display: flex;
 }
+.slick-dots li{
+  width: 60px;
+}
+.slick-dots li.slick-active{
+  font-weight: bold;
+}

@@ -57,7 +57,6 @@ function Carousel({items}) {
     return (
         <div className={classes.carouselContainer}>
             <Dialog open={dialogOpen} fullWidth={true} maxWidth={'sm'} onClose={()=>{setDialogOpen(false)}}>
-                {/* <iframe title={items[0].videoCode} className={classes.videoFrame} src={"https://www.youtube.com/embed/"+videoUrl} frameBorder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
                 <video className="w-100" controls>
                     <source src={videoUrl} type="video/mp4"/>
                 </video>
@@ -67,10 +66,6 @@ function Carousel({items}) {
                     <div key={item.id}>
                         {item.type === "video" ?(
                             <>
-                            {/* <div className={'playButtonContainer'}>
-                                <PlayCircleOutline onClick={(e)=>{handleClick(item.videoCode)}}/>
-                            </div>
-                            <img className="w-100" src={item.image} alt="One" /> */}
                             <div className={'playButtonContainer'}>
                                 <PlayCircleOutline onClick={(e)=>{handleClick(item.path)}}/>
                             </div>

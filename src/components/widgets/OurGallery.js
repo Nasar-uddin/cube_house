@@ -73,7 +73,6 @@ function OurGallery({floorplans}) {
                         ))}
                     </Grid>
                 </Grid>
-                
             </Grid>
         </Container>
     )
