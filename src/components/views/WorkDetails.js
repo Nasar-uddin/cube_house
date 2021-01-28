@@ -6,6 +6,7 @@ import Heroarea from '../widgets/Heroarea'
 import Large from '../widgets/Large'
 import Mini from '../widgets/Mini'
 import Carousel from '../widgets/sub_widgets/Carousel'
+import OurGallery from '../widgets/OurGallery'
 import Testimonials from '../widgets/Testimonials'
 
 function WorkDetails() {
@@ -46,7 +47,7 @@ function WorkDetails() {
             <Carousel items={siteData.carousel}/>
             <Large projects={siteData.large}/>
             <Mini services={siteData.mini}/>
-            {/* <OurGallery/> */}
+            <OurGallery floorplans={siteData.floorplans}/>
             <Testimonials testimonals={data.testimonals}/>
         </div>
     )

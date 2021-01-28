@@ -1,23 +1,9 @@
 import React from 'react'
 import Slider from 'react-slick'
 
-function ImageCarousel() {
-    const images = [
-        {
-            id: 0,
-            image: 'https://i.ibb.co/G9B89Tt/map-gallery-img-1.jpg'
-        },
-        {
-            id: 1,
-            image: 'https://i.ibb.co/CQVBJv9/map-gallery-img-3.jpg'
-        },
-        {
-            id: 2,
-            image: 'https://i.ibb.co/XCrYRqq/map-gallery-img-4.jpg'
-        }
-    ];
+function ImageCarousel({items}) {
     const settings = {
-        dots: false,
+        dots: true,
         arrows: false,
         autoplay: true,
         focusOnSelect: false,
@@ -28,9 +14,9 @@ function ImageCarousel() {
     };
     return (
         <Slider {...settings}>
-            {images.map((im)=>(
-                <div key={im.id}>
-                    <img className="w-100" src={im.image} alt="One" />
+            {items.map((item)=>(
+                <div key={item.heading}>
+                    <img className="w-100" src={item.image} alt={item.heading} />
                 </div>
             ))}
         </Slider>
