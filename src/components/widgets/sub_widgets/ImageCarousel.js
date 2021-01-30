@@ -2,7 +2,6 @@ import React from 'react'
 import Slider from 'react-slick'
 
 function ImageCarousel({items}) {
-    console.log(items)
     const settings = {
         dots: true,
         arrows: false,

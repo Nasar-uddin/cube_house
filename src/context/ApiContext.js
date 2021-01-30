@@ -5,6 +5,7 @@ export const ApiContext = createContext()
 
 function ApiProvider(props) {
     const [siteData, setSiteData] = useState()
+    const [testimonials, setTestimonials] = useState()
     const [dataLoaded, setDataLoaded] = useState(false)
     const loadProject = (projectId)=>{
         // #TODO: chnage the route to your project route
@@ -22,12 +23,24 @@ function ApiProvider(props) {
             }
         })
     }
-    // useEffect(() => {
-    //     loadData()
-    // }, [])
+    const loadTestimonials = ()=>{
+        return new Promise((resolve, reject)=>{
+            if(!testimonials){
+                axios.get('http://127.0.0.1:8000/api/testimonials/').then((response)=>{
+                    setTestimonials(response.data)
+                    resolve(response.data)
+                }).catch((error)=>{
+                    console.log(error)
+                    reject(error)
+                })
+            }else{
+                resolve(testimonials)
+            }
+        })
+    }
     return (
         <ApiContext.Provider value={{
-            siteData, dataLoaded, loadProject
+            siteData, dataLoaded, loadProject, loadTestimonials
         }}>
             {{...props.children}}
         </ApiContext.Provider>

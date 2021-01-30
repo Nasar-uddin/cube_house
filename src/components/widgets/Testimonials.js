@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useContext, useEffect} from 'react'
+import {ApiContext} from '../../context/ApiContext'
 import {makeStyles} from '@material-ui/core/styles'
 import { Container, Grid} from '@material-ui/core'
 import Testimonial from '../custom_mui_components/Testimonial'
@@ -20,8 +21,20 @@ const useStyles = makeStyles((theme)=>({
         width: theme.spacing(7)
     }
 }))
-function Testimonials({testimonals}) {
+function Testimonials() {
+    const {loadTestimonials} = useContext(ApiContext)
+    const [testimonials, setTestimonials] = useState()
     const classes = useStyles()
+    useEffect(() => {
+        if(!testimonials){
+            loadTestimonials().then((data)=>{
+                setTestimonials(data)
+            })
+        }
+    }, [testimonials, loadTestimonials])
+    if(!testimonials){
+        return (<div></div>)
+    }
     return (
         <Container maxWidth="lg" className='section-padding-t'>
             <Grid container>
@@ -29,7 +42,7 @@ function Testimonials({testimonals}) {
                     <p className={classes.title}>HAPPY CUSTOMERS</p>
                     <h2 className={classes.heading}>Testimonials</h2>
                 </Grid>
-                {testimonals.map((tes)=>(
+                {testimonials['results'].map((tes)=>(
                     <Grid item lg={4} md={4} sm={6} xs={12} key={tes.image}>
                         <Testimonial avater={tes.image} queto={`“${tes.queto}”`} name={tes.name} profesion={tes.profesion}/>
                     </Grid>

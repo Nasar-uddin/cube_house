@@ -38,11 +38,11 @@ function WorkDetails() {
 
     const loadData = ()=>{
         loadProject(id).then((data)=>{
-            console.log(data)
+            // console.log(data)
         }).catch(error=>{
             console.log(error)
         })
-        console.log('dma man')
+        console.log('contact for any web development work on nasar00708@gmail.com')
     }
     useEffect(() => {
        loadData()

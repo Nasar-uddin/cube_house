@@ -66,10 +66,10 @@ function Carousel({items}) {
                     <div key={item.id}>
                         {item.type === "video" ?(
                             <>
-                            {/* <div className={'playButtonContainer'}>
+                            <div className={'playButtonContainer'}>
                                 <PlayCircleOutline onClick={(e)=>{handleClick(item.path)}}/>
-                            </div> */}
-                            <video controls className="w-100">
+                            </div>
+                            <video className="w-100">
                                 <source src={item.path} type="video/mp4"/>
                             </video>
                             </>
