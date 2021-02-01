@@ -15,14 +15,12 @@ const useStyles = makeStyles((theme)=>({
         }
     },
     heroareaRoot: {
-        height: 'calc(100vh - 100px)',
+        height: '100vh',
+        minHeight: '720px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        [theme.breakpoints.down('sm')]: {
-            minHeight: 'calc(100vh - 74px)',
-        }
     },
     heroTitle: {
         fontSize: '7.5rem',

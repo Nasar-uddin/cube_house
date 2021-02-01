@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {AppBar, Toolbar, Slide, IconButton, Box, Hidden, Drawer, List, ListItem, ListItemText} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Box, Hidden, Drawer, List, ListItem, ListItemText} from '@material-ui/core';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import {Menu} from '@material-ui/icons'
 import logo from '../../assets/logo.png'
@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     navRoot: {
         padding: '18px 40px',
         backgroundColor: '#ffffff',
+        transition: '0.3s',
         boxShadow: '0 5px 12.09px 0.91px rgba(144, 144, 154, 0.07)',
         [theme.breakpoints.down('sm')]: {
             padding: '5px 20px',
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     navMenuItem: {
-        color: '#888484',
+        color: 'inherit', //#888484
         fontSize: '14px',
         fontWeight: '700',
         padding: '3px 5px',
@@ -77,24 +78,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function HideOnScroll(props) {
-    
-    const { children, window  } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
-    const trigger = useScrollTrigger({ target: window ? window() : undefined });
-
-    return (
-        <Slide appear={false} direction="down" in={!trigger}>
-            {children}
-        </Slide>
-    );
-}
-
 
 function Navbar() {
     const [drawerOpen, serDrawerOpen] = useState(false)
+    const trigger = useScrollTrigger({
+        disableHysteresis: true
+    })
     const classes = useStyles();
     return (
         <>
@@ -117,37 +106,36 @@ function Navbar() {
                 </Link>
             </List>
         </Drawer>
-        <HideOnScroll>
-            <AppBar position="sticky" className={classes.navRoot}>
-                <Toolbar className={classes.p0}>
-                    <div className={classes.logoContainer}>
-                        <Link to="/">
-                            <img src={logo} alt="logo" height="35" />
-                        </Link>
-                    </div>
-                    <div>
-                        <ul className={classes.navItemList}>
-                            <li>
-                                <Link to="/" className={classes.navMenuItem}>Home</Link>
-                            </li>
-                            <li>
-                                <Link to="/" className={classes.navMenuItem}>About us</Link>
-                            </li>
-                            <li>
-                                <Link to="/" className={classes.navMenuItem}>Contact us</Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <Hidden mdUp>
-                        <Box ml="auto">
-                            <IconButton onClick={()=>{serDrawerOpen(true)}}>
-                                <Menu/>
-                            </IconButton>
-                        </Box>
-                    </Hidden>
-                </Toolbar>
-            </AppBar>
-        </HideOnScroll>
+        <AppBar position="fixed" className={classes.navRoot} 
+            style={{backgroundColor: trigger? '#ffffff' : 'transparent', color: trigger? '#888484': '#ffffff' }}>
+            <Toolbar className={classes.p0}>
+                <div className={classes.logoContainer}>
+                    <Link to="/">
+                        <img src={logo} alt="logo" height="35" />
+                    </Link>
+                </div>
+                <div style={{marginLeft: 'auto'}}>
+                    <ul className={classes.navItemList}>
+                        <li>
+                            <Link to="/" className={classes.navMenuItem}>Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/" className={classes.navMenuItem}>About us</Link>
+                        </li>
+                        <li>
+                            <Link to="/" className={classes.navMenuItem}>Contact us</Link>
+                        </li>
+                    </ul>
+                </div>
+                <Hidden mdUp>
+                    <Box ml="auto">
+                        <IconButton style={{color: 'inherit'}} onClick={()=>{serDrawerOpen(true)}}>
+                            <Menu/>
+                        </IconButton>
+                    </Box>
+                </Hidden>
+            </Toolbar>
+        </AppBar>
         </>
     );
 }
