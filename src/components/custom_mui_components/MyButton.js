@@ -9,7 +9,7 @@ const MyButton = styled(Button)({
     padding: '13px 23px 13px 33px',
     fontWeight: '700',
     fontSize: '14px',
-    lineHeight: '2em',
+    lineHeight: '1.2em',
     letterSpacing: '.1em',
     textTransform: 'uppercase',
     boxSizing: 'border-box',
