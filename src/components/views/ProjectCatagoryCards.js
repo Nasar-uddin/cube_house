@@ -2,7 +2,7 @@ import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React, {useContext, useState} from 'react'
 import Slider from 'react-slick'
-import PorjectCard from '../widgets/sub_widgets/PorjectCard'
+import CategoryCard from '../widgets/sub_widgets/CategoryCard'
 import {ApiContext} from '../../context/ApiContext'
 const useStyles = makeStyles((theme) => ({
     projectCardRoot: {
@@ -79,11 +79,11 @@ function ProjectCatagoryCards() {
     return (
         <div className={classes.projectCardRoot}>
             <Box className={classes.cardCarouselContainer}>
-                <h1 className={classes.projectsTitle}>Our <span className={classes.colorText}>Catagory</span></h1>
+                <h1 className={classes.projectsTitle}>Our <span className={classes.colorText}>Categories</span></h1>
                 <div>
                     <Slider {...settings}>
                         {catagory!=null?catagory.results.map((d)=>(
-                            <PorjectCard image={d.thumbnail} title={d.heading} subTitle={d.subheading} id={d.id} key={d.id}/>
+                            <CategoryCard image={d.thumbnail} title={d.heading} subTitle={d.subheading} id={d.id} key={d.id}/>
                         )):<></>}
                     </Slider>
                 </div>

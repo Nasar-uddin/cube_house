@@ -5,7 +5,7 @@ import {
     BrowserRouter as Router,
     Route, Switch, Link
 } from 'react-router-dom'
-import ProjectCatagoryCards from './components/views/ProjectCatagoryCard'
+import ProjectCatagoryCards from './components/views/ProjectCatagoryCards'
 
 
 function App() {
