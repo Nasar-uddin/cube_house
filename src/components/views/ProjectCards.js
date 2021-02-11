@@ -1,9 +1,10 @@
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, {useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import Slider from 'react-slick'
-import PorjectCard from '../widgets/sub_widgets/PorjectCard'
-import {ApiContext} from '../../context/ApiContext'
+import ProjectCard from '../widgets/sub_widgets/ProjectCard'
+import { ApiContext } from '../../context/ApiContext'
+import Navbar from '../widgets/Navbar'
 const useStyles = makeStyles((theme) => ({
     projectCardRoot: {
         // Change the image url to change the background image
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 function ProjectCards() {
-    const {projects, loadProjects, loadMoreProjects} = useContext(ApiContext)
+    const { projects, loadProjects, loadMoreProjects } = useContext(ApiContext)
     const classes = useStyles()
     const settings = {
         dots: false,
@@ -52,8 +53,8 @@ function ProjectCards() {
         speed: 500,
         autoplaySpeed: 15000,
         slidesToShow: 3,
-        onEdge: (event)=>{
-            if(event === 'left'){
+        onEdge: (event) => {
+            if (event === 'left') {
                 loadMoreProjects()
             }
         },
@@ -61,34 +62,37 @@ function ProjectCards() {
             {
                 breakpoint: 960,
                 settings: {
-                  slidesToShow: 2,
+                    slidesToShow: 2,
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
-                  slidesToShow: 1,
+                    slidesToShow: 1,
                 }
             },
         ]
     };
 
-    useState(()=>{
+    useState(() => {
         loadProjects()
-    },[])
+    }, [])
     return (
-        <div className={classes.projectCardRoot}>
-            <Box className={classes.cardCarouselContainer}>
-                <h1 className={classes.projectsTitle}>Our <span className={classes.colorText}>Projects</span></h1>
-                <div>
-                    <Slider {...settings}>
-                        {projects!=null?projects.results.map((d)=>(
-                            <PorjectCard image={d.thumbnail} title={d.title} subTitle={d.description} id={d.id} key={d.id}/>
-                        )):<></>}
-                    </Slider>
-                </div>
-            </Box>
-        </div>
+        <>
+            <Navbar/>
+            <div className={classes.projectCardRoot}>
+                <Box className={classes.cardCarouselContainer}>
+                    <h1 className={classes.projectsTitle}>Our <span className={classes.colorText}>Projects</span></h1>
+                    <div>
+                        <Slider {...settings}>
+                            {projects != null ? projects.results.map((d) => (
+                                <ProjectCard image={d.thumbnail} title={d.title} subTitle={d.description} id={d.id} key={d.id} />
+                            )) : <></>}
+                        </Slider>
+                    </div>
+                </Box>
+            </div>
+        </>
     )
 }
 

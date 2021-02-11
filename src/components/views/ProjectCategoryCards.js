@@ -1,9 +1,10 @@
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, {useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import Slider from 'react-slick'
 import CategoryCard from '../widgets/sub_widgets/CategoryCard'
-import {ApiContext} from '../../context/ApiContext'
+import { ApiContext } from '../../context/ApiContext'
+import Navbar from '../widgets/Navbar'
 const useStyles = makeStyles((theme) => ({
     projectCardRoot: {
         // Change the image url to change the background image
@@ -40,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-function ProjectCatagoryCards() {
-    const {catagory, loadCatagory, loadMoreCatagory} = useContext(ApiContext)
+function ProjectCategoryCards() {
+    const { catagory, loadCatagory, loadMoreCatagory } = useContext(ApiContext)
     const classes = useStyles()
     const settings = {
         dots: false,
@@ -52,8 +53,8 @@ function ProjectCatagoryCards() {
         speed: 500,
         autoplaySpeed: 15000,
         slidesToShow: 3,
-        onEdge: (event)=>{
-            if(event === 'left'){
+        onEdge: (event) => {
+            if (event === 'left') {
                 loadMoreCatagory()
             }
         },
@@ -61,35 +62,38 @@ function ProjectCatagoryCards() {
             {
                 breakpoint: 960,
                 settings: {
-                  slidesToShow: 2,
+                    slidesToShow: 2,
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
-                  slidesToShow: 1,
+                    slidesToShow: 1,
                 }
             },
         ]
     };
 
-    useState(()=>{
+    useState(() => {
         loadCatagory()
-    },[])
+    }, [])
     return (
-        <div className={classes.projectCardRoot}>
-            <Box className={classes.cardCarouselContainer}>
-                <h1 className={classes.projectsTitle}>Our <span className={classes.colorText}>Categories</span></h1>
-                <div>
-                    <Slider {...settings}>
-                        {catagory!=null?catagory.results.map((d)=>(
-                            <CategoryCard image={d.thumbnail} title={d.heading} subTitle={d.subheading} id={d.id} key={d.id}/>
-                        )):<></>}
-                    </Slider>
-                </div>
-            </Box>
-        </div>
+        <>
+            <Navbar />
+            <div className={classes.projectCardRoot}>
+                <Box className={classes.cardCarouselContainer}>
+                    <h1 className={classes.projectsTitle}>Our <span className={classes.colorText}>Categories</span></h1>
+                    <div>
+                        <Slider {...settings}>
+                            {catagory != null ? catagory.results.map((d) => (
+                                <CategoryCard image={d.thumbnail} title={d.heading} subTitle={d.subheading} id={d.id} key={d.id} />
+                            )) : <></>}
+                        </Slider>
+                    </div>
+                </Box>
+            </div>
+        </>
     )
 }
 
-export default ProjectCatagoryCards
+export default ProjectCategoryCards

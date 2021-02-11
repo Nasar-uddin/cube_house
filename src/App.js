@@ -5,7 +5,7 @@ import {
     BrowserRouter as Router,
     Route, Switch, Link
 } from 'react-router-dom'
-import ProjectCatagoryCards from './components/views/ProjectCatagoryCards'
+import ProjectCategoryCards from './components/views/ProjectCategoryCards'
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
                     <ProjectCards/>
                 </Route>
                 <Route exact path="/categories">
-                    <ProjectCatagoryCards/>
+                    <ProjectCategoryCards/>
                 </Route>
                 <Route path="/projects/:id">
                     <WorkDetails/>

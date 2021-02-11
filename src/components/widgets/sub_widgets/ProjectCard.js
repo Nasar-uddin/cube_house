@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-function PorjectCard({image, title, subTitle, id}) {
+function ProjectCard({image, title, subTitle, id}) {
     const classes = useStyles()
     const history = useHistory()
     return (
@@ -42,4 +42,4 @@ function PorjectCard({image, title, subTitle, id}) {
     )
 }
 
-export default PorjectCard
+export default ProjectCard
