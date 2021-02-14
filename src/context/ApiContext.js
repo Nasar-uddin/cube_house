@@ -42,7 +42,8 @@ function ApiProvider(props) {
             }
         })
     }
-    const loadProjects = ()=>{
+    const loadProjects = (categoryId)=>{
+        // change the route according to your need
         axios.get(rootUrl+'/api/projects/').then((response)=>{
             setProjects(response.data)
         }).catch((error)=>{
@@ -63,8 +64,6 @@ function ApiProvider(props) {
             }).catch(error=>{
                 console.log(error)
             })
-        }else{
-            console.log('reached at the end')
         }
     }
     
@@ -89,8 +88,6 @@ function ApiProvider(props) {
             }).catch(error=>{
                 console.log(error)
             })
-        }else{
-            console.log('reached at the end')
         }
     }
     return (

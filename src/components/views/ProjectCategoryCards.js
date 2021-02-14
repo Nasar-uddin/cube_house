@@ -53,8 +53,8 @@ function ProjectCategoryCards() {
         speed: 500,
         autoplaySpeed: 15000,
         slidesToShow: 3,
-        onEdge: (event) => {
-            if (event === 'left') {
+        afterChange: (index) =>{
+            if(index+3 >= catagory.results.length){
                 loadMoreCatagory()
             }
         },
@@ -63,12 +63,22 @@ function ProjectCategoryCards() {
                 breakpoint: 960,
                 settings: {
                     slidesToShow: 2,
+                    afterChange: (index) =>{
+                        if(index+2 >= catagory.results.length){
+                            loadMoreCatagory()
+                        }
+                    },
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
+                    afterChange: (index) =>{
+                        if(index+1 >= catagory.results.length){
+                            loadMoreCatagory()
+                        }
+                    },
                 }
             },
         ]

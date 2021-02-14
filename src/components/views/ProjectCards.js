@@ -5,6 +5,9 @@ import Slider from 'react-slick'
 import ProjectCard from '../widgets/sub_widgets/ProjectCard'
 import { ApiContext } from '../../context/ApiContext'
 import Navbar from '../widgets/Navbar'
+import { useParams } from "react-router-dom";
+
+
 const useStyles = makeStyles((theme) => ({
     projectCardRoot: {
         // Change the image url to change the background image
@@ -44,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 function ProjectCards() {
     const { projects, loadProjects, loadMoreProjects } = useContext(ApiContext)
     const classes = useStyles()
+    const {id} = useParams()
     const settings = {
         dots: false,
         arrows: true,
@@ -53,9 +57,14 @@ function ProjectCards() {
         speed: 500,
         autoplaySpeed: 15000,
         slidesToShow: 3,
+        afterChange: (index) =>{
+            if(index+3 >= projects.results.length){
+                loadMoreProjects()
+            }
+        },
         onEdge: (event) => {
             if (event === 'left') {
-                loadMoreProjects()
+                // loadMoreProjects()
             }
         },
         responsive: [
@@ -63,19 +72,29 @@ function ProjectCards() {
                 breakpoint: 960,
                 settings: {
                     slidesToShow: 2,
+                    afterChange: (index) =>{
+                        if(index+2 >= projects.results.length){
+                            loadMoreProjects()
+                        }
+                    },
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
+                    afterChange: (index) =>{
+                        if(index+1 >= projects.results.length){
+                            loadMoreProjects()
+                        }
+                    },
                 }
             },
         ]
     };
 
     useState(() => {
-        loadProjects()
+        loadProjects(id)
     }, [])
     return (
         <>

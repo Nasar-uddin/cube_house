@@ -4,6 +4,15 @@ import React from 'react'
 import MyButton from '../../custom_mui_components/MyButton'
 import {useHistory} from 'react-router-dom'
 const useStyles = makeStyles((theme)=>({
+    cardRoot: {
+        background: 'transparent',
+        color: 'white',
+        transition: '0.3s',
+        '&:hover': {
+            background: 'white',
+            color: '#222'
+        }
+    },
     cardAction: {
         paddingBottom: '20px',
         display: 'flex',
@@ -19,7 +28,7 @@ function ProjectCard({image, title, subTitle, id}) {
     const history = useHistory()
     return (
         <Box paddingLeft={2} paddingRight={2}>
-            <Card>
+            <Card className={classes.cardRoot}>
                 <CardActionArea disableRipple>
                     <CardMedia component="img"
                         alt="image"

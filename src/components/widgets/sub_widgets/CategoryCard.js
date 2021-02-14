@@ -5,6 +5,15 @@ import MyButton from '../../custom_mui_components/MyButton'
 import {useHistory} from 'react-router-dom'
 const useStyles = makeStyles((theme)=>({
     cardAction: {
+        cardRoot: {
+            background: 'transparent',
+            color: 'white',
+            transition: '0.3s',
+            '&:hover': {
+                background: 'white',
+                color: '#222'
+            }
+        },
         paddingBottom: '20px',
         display: 'flex',
         justifyContent: 'center'
@@ -19,7 +28,7 @@ function CategoryCard({image, title, subTitle, id}) {
     const history = useHistory()
     return (
         <Box paddingLeft={2} paddingRight={2}>
-            <Card>
+            <Card className={classes.cardRoot}>
                 <CardActionArea disableRipple>
                     <CardMedia component="img"
                         alt="image"
@@ -36,7 +45,7 @@ function CategoryCard({image, title, subTitle, id}) {
                 </CardActionArea>
                 <CardActions className={classes.cardAction}>
                     {/* Change the route for the category */}
-                    <MyButton onClick={(e)=>{history.push('/projects/'+id)}}>Learn More</MyButton>
+                    <MyButton onClick={(e)=>{history.push('/category/'+id)}}>Learn More</MyButton>
                 </CardActions>
             </Card>
         </Box>

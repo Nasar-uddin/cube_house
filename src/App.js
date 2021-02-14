@@ -18,10 +18,10 @@ function App() {
                     <Link to={'/projects/1'}>Go to project</Link>
                 </Route>
                 {/* Till this line */}
-                <Route exact path="/projects">
+                <Route exact path="/category/:id">
                     <ProjectCards/>
                 </Route>
-                <Route exact path="/categories">
+                <Route exact path="/category">
                     <ProjectCategoryCards/>
                 </Route>
                 <Route path="/projects/:id">
