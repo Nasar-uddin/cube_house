@@ -4,16 +4,16 @@ import React from 'react'
 import MyButton from '../../custom_mui_components/MyButton'
 import {useHistory} from 'react-router-dom'
 const useStyles = makeStyles((theme)=>({
+    cardRoot: {
+        background: 'transparent',
+        color: 'white',
+        transition: '0.3s',
+        '&:hover': {
+            background: 'white',
+            color: '#222'
+        }
+    },
     cardAction: {
-        cardRoot: {
-            background: 'transparent',
-            color: 'white',
-            transition: '0.3s',
-            '&:hover': {
-                background: 'white',
-                color: '#222'
-            }
-        },
         paddingBottom: '20px',
         display: 'flex',
         justifyContent: 'center'

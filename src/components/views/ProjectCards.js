@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Slider from 'react-slick'
 import ProjectCard from '../widgets/sub_widgets/ProjectCard'
 import { ApiContext } from '../../context/ApiContext'
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url(https://i.ibb.co/G9B89Tt/map-gallery-img-1.jpg)',
         backgroundSize: 'cover',
         height: '100vh',
-        minHeight: '720px',
+        minHeight: '550px',
         color: 'white',
         overflow: 'hidden',
         maxWidth: '100vw',
@@ -93,9 +93,11 @@ function ProjectCards() {
         ]
     };
 
-    useState(() => {
+    useEffect(() => {
         loadProjects(id)
-    }, [])
+        document.title = id
+        return () => document.title = 'Cube House'
+    }, [id])
     return (
         <>
             <Navbar/>
