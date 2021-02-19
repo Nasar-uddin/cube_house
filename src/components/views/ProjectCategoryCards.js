@@ -96,8 +96,8 @@ function ProjectCategoryCards() {
                         {catagory != null ? 
                             <>
                             <Grid container justify='center'>
-                                <Grid item xl={catagory.count > 2 ? 10: 6} lg={catagory.count > 2 ? 10: 6} md={catagory.count > 2 ? 10: 6} sm={11} xs={11}>
-                                    <Slider {...settings} slidesToShow={catagory.count > 2 ? 3: catagory.count}>
+                                <Grid item xl={catagory.results.length > 2 ? 10: 6} lg={catagory.results.length > 2 ? 10: 6} md={catagory.results.length > 2 ? 10: 6} sm={11} xs={11}>
+                                    <Slider {...settings} slidesToShow={catagory.results.length > 3 ? 3: Math.max(1, catagory.results.length-1)}>
                                         {catagory.results.map((d) => (
                                             <CategoryCard image={d.thumbnail} title={d.heading} subTitle={d.subheading} id={d.id} key={d.id} />
                                         ))}
