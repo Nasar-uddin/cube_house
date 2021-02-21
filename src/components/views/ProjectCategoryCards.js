@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 function ProjectCategoryCards() {
-    const { catagory, loadCatagory, loadMoreCatagory } = useContext(ApiContext)
+    const { catagory, loadCatagory, loadMoreCatagory, categorySlidesToShow} = useContext(ApiContext)
     const classes = useStyles()
     const settings = {
         dots: false,
@@ -96,8 +96,8 @@ function ProjectCategoryCards() {
                         {catagory != null ? 
                             <>
                             <Grid container justify='center'>
-                                <Grid item xl={catagory.results.length > 2 ? 10: 6} lg={catagory.results.length > 2 ? 10: 6} md={catagory.results.length > 2 ? 10: 6} sm={11} xs={11}>
-                                    <Slider {...settings} slidesToShow={catagory.results.length > 3 ? 3: Math.max(1, catagory.results.length-1)}>
+                                <Grid item xl={categorySlidesToShow > 2 ? 10: 6} lg={categorySlidesToShow > 2 ? 10: 6} md={categorySlidesToShow > 2 ? 10: 6} sm={11} xs={11}>
+                                    <Slider {...settings} slidesToShow={categorySlidesToShow}>
                                         {catagory.results.map((d) => (
                                             <CategoryCard image={d.thumbnail} title={d.heading} subTitle={d.subheading} id={d.id} key={d.id} />
                                         ))}

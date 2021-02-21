@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 function ProjectCards() {
-    const { projects, loadProjects, loadMoreProjects } = useContext(ApiContext)
+    const { projects, loadProjects, loadMoreProjects, projectSlidesToShow } = useContext(ApiContext)
     const classes = useStyles()
     const {id} = useParams()
     const settings = {
@@ -110,8 +110,8 @@ function ProjectCards() {
                         {projects != null ? 
                             <>
                             <Grid container justify='center'>
-                                <Grid item xl={projects.results.length > 2 ? 10: 6} lg={projects.results.length > 2 ? 10: 6} md={projects.results.length > 2 ? 10: 6} sm={11} xs={11}>
-                                    <Slider {...settings} slidesToShow={projects.results.length > 3 ? 3: Math.max(1, projects.results.length-1)}>
+                                <Grid item xl={projectSlidesToShow > 2 ? 10: 6} lg={projectSlidesToShow > 2 ? 10: 6} md={projectSlidesToShow > 2 ? 10: 6} sm={11} xs={11}>
+                                    <Slider {...settings} slidesToShow={projectSlidesToShow}>
                                         {projects.results.map((d) => (
                                             <ProjectCard image={d.thumbnail} title={d.title} subTitle={d.description} id={d.id} key={d.id} />
                                         ))}

@@ -9,6 +9,8 @@ function ApiProvider(props) {
     const [dataLoaded, setDataLoaded] = useState(false)
     const [projects, setProjects] = useState()
     const [catagory, setCatagory] = useState()
+    const [projectSlidesToShow, setProjectSlidesToShow] = useState(3)
+    const [categorySlidesToShow, setCategorySlidesToShow] = useState(3)
     const rootUrl = 'http://127.0.0.1:8000'
 
     const loadProject = (projectId)=>{
@@ -45,6 +47,7 @@ function ApiProvider(props) {
     const loadProjects = (categoryId)=>{
         // change the route according to your need
         axios.get(rootUrl+'/api/projects/').then((response)=>{
+            setProjectSlidesToShow(response.data.results.length > 3 ? 3: Math.max(1, response.data.results.length-1))
             setProjects(response.data)
         }).catch((error)=>{
             console.log(error)
@@ -69,6 +72,7 @@ function ApiProvider(props) {
     
     const loadCatagory = ()=>{
         axios.get(rootUrl+'/api/categories/').then((response)=>{
+            setCategorySlidesToShow(response.data.results.length > 3 ? 3: Math.max(1, response.data.results.length-1))
             setCatagory(response.data)
         }).catch((error)=>{
             console.log(error)
@@ -92,7 +96,7 @@ function ApiProvider(props) {
     }
     return (
         <ApiContext.Provider value={{
-            siteData, dataLoaded, loadProject, loadTestimonials, projects, loadProjects, loadMoreProjects, catagory, loadCatagory, loadMoreCatagory
+            siteData, dataLoaded, loadProject, loadTestimonials, projects, loadProjects, loadMoreProjects, catagory, loadCatagory, loadMoreCatagory, projectSlidesToShow, categorySlidesToShow
         }}>
             {{...props.children}}
         </ApiContext.Provider>
