@@ -5,7 +5,8 @@ import Slider from 'react-slick'
 import ProjectCard from '../widgets/sub_widgets/ProjectCard'
 import { ApiContext } from '../../context/ApiContext'
 import Navbar from '../widgets/Navbar'
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import LazyGrid from './LazyGrid'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +46,8 @@ function ProjectCards() {
     const { projects, loadProjects, loadMoreProjects, projectSlidesToShow } = useContext(ApiContext)
     const classes = useStyles()
     const {id} = useParams()
+    const location = useLocation()
+    const mode = new URLSearchParams(location.search).get('mode')
     const settings = {
         dots: false,
         arrows: true,
@@ -81,7 +84,6 @@ function ProjectCards() {
                 settings: {
                     slidesToShow: 1,
                     afterChange: (index) =>{
-                        console.log(index)
                         if(index+1 >= projects.results.length){
                             loadMoreProjects()
                         }
@@ -99,30 +101,32 @@ function ProjectCards() {
     return (
         <>
             <Navbar/>
-            <div className={classes.projectCardRoot}>
-                <Box pl={3} pr={3} className={classes.cardCarouselContainer}>
-                <Box pb={3}>
-                    <Typography align='center' variant={"h2"} component={"h2"}>
-                        Our <span className={classes.colorText}>Projects</span>
-                    </Typography>
-                </Box>
-                    <div>
-                        {projects != null ? 
-                            <>
-                            <Grid container justify='center'>
-                                <Grid item xl={projectSlidesToShow > 2 ? 10: 6} lg={projectSlidesToShow > 2 ? 10: 6} md={projectSlidesToShow > 2 ? 10: 6} sm={11} xs={11}>
-                                    <Slider {...settings} slidesToShow={projectSlidesToShow}>
-                                        {projects.results.map((d) => (
-                                            <ProjectCard image={d.thumbnail} title={d.title} subTitle={d.description} id={d.id} key={d.id} />
-                                        ))}
-                                    </Slider>
+            {mode === 'grid' ? <LazyGrid/>: 
+                <div className={classes.projectCardRoot}>
+                    <Box pl={3} pr={3} className={classes.cardCarouselContainer}>
+                    <Box pb={3}>
+                        <Typography align='center' variant={"h2"} component={"h2"}>
+                            Our <span className={classes.colorText}>Projects</span>
+                        </Typography>
+                    </Box>
+                        <div>
+                            {projects != null ? 
+                                <>
+                                <Grid container justify='center'>
+                                    <Grid item xl={projectSlidesToShow > 2 ? 10: 6} lg={projectSlidesToShow > 2 ? 10: 6} md={projectSlidesToShow > 2 ? 10: 6} sm={11} xs={11}>
+                                        <Slider {...settings} slidesToShow={projectSlidesToShow}>
+                                            {projects.results.map((d) => (
+                                                <ProjectCard image={d.thumbnail} title={d.title} subTitle={d.description} id={d.id} key={d.id} />
+                                            ))}
+                                        </Slider>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                            </>
-                        : <></>}
-                    </div>
-                </Box>
-            </div>
+                                </>
+                            : <></>}
+                        </div>
+                    </Box>
+                </div>
+            }
         </>
     )
 }

@@ -6,11 +6,9 @@ import App from './App';
 import ApiProvider from './context/ApiContext';
 
 ReactDOM.render(
-  <React.StrictMode>
     <ApiProvider>
       <App />
-    </ApiProvider>
-  </React.StrictMode>,
+    </ApiProvider>,
   document.getElementById('root')
 );
 
