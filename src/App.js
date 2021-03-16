@@ -6,6 +6,7 @@ import {
     Route, Switch, Link
 } from 'react-router-dom'
 import ProjectCategoryCards from './components/views/ProjectCategoryCards'
+import Photo360View from './components/views/Photo360View'
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
                 </Route>
                 <Route path="/projects/:id">
                     <WorkDetails/>
+                </Route>
+                <Route path="/360photo/:id">
+                    <Photo360View/>
                 </Route>
             </Switch>
         </Router>

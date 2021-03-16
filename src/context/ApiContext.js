@@ -11,6 +11,7 @@ function ApiProvider(props) {
     const [catagory, setCatagory] = useState()
     const [projectSlidesToShow, setProjectSlidesToShow] = useState(3)
     const [categorySlidesToShow, setCategorySlidesToShow] = useState(3)
+    const [panoramaImage, setPanoramaImage] = useState()
     const rootUrl = 'http://127.0.0.1:8000'
 
     const loadProject = (projectId)=>{
@@ -94,9 +95,43 @@ function ApiProvider(props) {
             })
         }
     }
+
+    const loadPanoramaImage = (id)=>{
+        if(panoramaImage) return
+        axios.get(rootUrl+`/api/360photo/${id}/`).then((response)=>{
+            setPanoramaImage(response.data)
+        }).catch(error=>{
+            console.log(error)
+        })
+    }
+    const toggleProjectInterest = (projectId)=>{
+        axios.put(
+            `${rootUrl}/api/project/interest/`,
+            {'projectId': projectId}).then((response)=>{
+                if(response.status >=200 && response.status <400){
+                    const newProjects = {
+                        ...projects,
+                        results: projects.results.map((res)=>{
+                            if(res.id === projectId){
+                                return {
+                                    ...res,
+                                    interested: !res.interested,
+                                }
+                            }
+                            return res
+                        })
+                    }
+                    setProjects(newProjects)
+                }else{
+                    console.log('Project interest error')
+                }
+            }).catch((error)=>{
+                console.log(error)
+            })
+    }
     return (
         <ApiContext.Provider value={{
-            siteData, dataLoaded, loadProject, loadTestimonials, projects, loadProjects, loadMoreProjects, catagory, loadCatagory, loadMoreCatagory, projectSlidesToShow, categorySlidesToShow
+            siteData, dataLoaded, loadProject, loadTestimonials, projects, loadProjects, loadMoreProjects, catagory, loadCatagory, loadMoreCatagory, projectSlidesToShow, categorySlidesToShow, loadPanoramaImage, panoramaImage, toggleProjectInterest
         }}>
             {{...props.children}}
         </ApiContext.Provider>

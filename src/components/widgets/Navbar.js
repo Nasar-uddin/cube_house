@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '18px 40px',
         backgroundColor: '#ffffff',
         transition: '0.3s',
-        boxShadow: '0 5px 12.09px 0.91px rgba(144, 144, 154, 0.07)',
+        boxShadow: '0 5px 12.09px 0.91px rgba(34, 34, 34, 0.08)',
         [theme.breakpoints.down('sm')]: {
             padding: '5px 20px',
         }

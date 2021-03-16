@@ -83,3 +83,20 @@ h1, h2, h3, h4, h5, h6{
 .slick-dots li.slick-active{
   font-weight: bold;
 }
+
+.MuiButton-contained.MuiButton-containedPrimary{
+  background-color: #bf9410;
+  color: #f1f4f9;
+  box-shadow: none;
+  &:hover{
+    box-shadow: none;
+    background-color: #cca940;
+  }
+}
+.MuiButton-outlined.MuiButton-outlinedPrimary{
+  border-color: #bf9410;
+  color: #bf9410;
+  &:hover{
+    border-color: #bf9410;
+  }
+}
