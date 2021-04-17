@@ -17,6 +17,8 @@ function App() {
                 <Route exact path="/">
                     <h1>This is home page</h1>
                     <Link to={'/projects/1'}>Go to project</Link>
+                    <br/>
+                    <Link to={'/360photo/1'}>360 phto</Link>
                 </Route>
                 {/* Till this line */}
                 <Route exact path="/category/:id">
