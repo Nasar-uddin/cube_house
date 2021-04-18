@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme)=>({
 
 function Photo360View() {
     const url1 = 'https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3'
-    const [audio] = useState(new Audio(url1))
+    const [audio, setAudio] = useState()
     const [playing, setPlaying] = useState(false)
     const [showBtn, setShowBtn] = useState(false)
     const {id} = useParams()
@@ -40,25 +40,26 @@ function Photo360View() {
                 'panoroma',
                 {
                     "hotSpotDebug": forDebug === 'true'? true: false,
-                    ...panoramaImage
+                    ...panoramaImage,
                 }
             )
+            setAudio(new Audio(panoramaImage.default.audio))
         }
     },[panoramaImage, id, forDebug, loadPanoramaImage])
-    
     useEffect(()=>{
-        setTimeout(()=>{
-            audio.play().then(()=>{
+        if(audio){
+            audio.play()
+            .then(()=>{
                 setPlaying(true)
             }).catch(()=>{
                 setPlaying(false)
                 setShowBtn(true)
             })
-        }, 2000)
-        return ()=> {
-            audio.pause()
+            return ()=> {
+                audio.pause()
+            }
         }
-    },[])
+    },[audio])
     return (
         <div>
             <Navbar/>
@@ -67,7 +68,7 @@ function Photo360View() {
                     <div id="panoroma" className={classes.panoramaContainer}></div>
                 </Grid>
                 <Fab size="small" color="primary" onClick={handlePlay} style={{position: 'absolute', right: '20px', bottom: '20px'}}>
-                    {playing? <PlayArrow/>: <Pause/>}
+                    {playing? <Pause/> : <PlayArrow/>}
                 </Fab>
             </Grid>
         </div>
