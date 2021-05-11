@@ -80,6 +80,7 @@ function Photo360View() {
             })
             return ()=> {
                 audio.pause()
+                setViewer(null)
             }
         }
     },[audio])
